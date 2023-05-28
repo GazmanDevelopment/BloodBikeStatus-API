@@ -1,6 +1,3 @@
-# Local Docker build: docker image build -t blood_bikes_status .
-# Local Docker run: docker run -p 5000:5000 -d blood_bikes_status
-
 import configparser
 import os
 import time
@@ -59,13 +56,15 @@ def get_status():
     # Open the Selenium browser and log in
     try:
         chrome_options = Options()
+        chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--headless")
         chrome_options.add_experimental_option("prefs", { \
             "profile.default_content_setting_values.geolocation": 1
         })
+        chrome_options.add_argument("--remote-debugging-port=9222")
 
-        browser = webdriver.Chrome(options=chrome_options)
-
+        browser = webdriver.Chrome(executable_path='/usr/lib/chromium-browser/chromedriver', options=chrome_options)
+        
         browser.execute_cdp_cmd("Page.setGeolocationOverride", geo_params)
         browser.execute_cdp_cmd("Browser.grantPermissions", geo_perms)
         browser.get(url)
@@ -111,7 +110,7 @@ def get_status():
         return str(return_data), 500
     
 @app.route('/set_status/<status_value>')
-def set_status_api(status_value):      
+def set_status(status_value):      
     # Load config options from the config file
     try:
         global url, username, password, geo_params, geo_perms
@@ -164,12 +163,14 @@ def set_status_api(status_value):
     # Open the Selenium browser and log in
     try:
         chrome_options = Options()
+        chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--headless")
         chrome_options.add_experimental_option("prefs", { \
             "profile.default_content_setting_values.geolocation": 1
         })
+        chrome_options.add_argument("--remote-debugging-port=9222")
 
-        browser = webdriver.Chrome(options=chrome_options)
+        browser = webdriver.Chrome(executable_path='/usr/lib/chromium-browser/chromedriver', options=chrome_options)
 
         browser.execute_cdp_cmd("Page.setGeolocationOverride", geo_params)
         browser.execute_cdp_cmd("Browser.grantPermissions", geo_perms)

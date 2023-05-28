@@ -1,5 +1,9 @@
 # BloodBikeStatus-API
-This Python code is designed to run on a Pi Zero W under gunicorn.
+I volunteer for [Blood Bikes Australia](http://www.bloodbikesaustralia.com.au/) and we need to flag our availability using a website that has been build for us.  The website is simple enough - login in, click a button to say "Available" or "Unavailable", if available it uses the location of your device to flag to potential users of the service where you are.
+
+I happen to run a [Home Assistant](https://www.home-assistant.io/) setup at home and thought it would be cool to add the ability to view and change my status from any screen running the HASS interface.  Rather than code up a custom integration in HASS, I decided to learn Python and build an API that it can call.  This has also allowed me to code an automation that sets my status to "Unavailable" autmatically at 2030.  This avoids any issues where I forget to do so manually!
+
+The result is this API which is designed to run on a Pi Zero W using Flask with gunicorn as the production QSGI server.  Using a Pi Zero W does have performance issues - a basic call takes about 90 seconds to respond.  Using a more powerful Pi would improve this (most of the time is spent spooling up selenium / chrome drivers) but would also be overkill unless you happen to have one spare or using it for something else.
 
 ## Requirements
 First you will need a Pi Zero W.  I used the following to build my mini-server.

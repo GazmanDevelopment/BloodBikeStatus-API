@@ -22,7 +22,7 @@ You will also need a way to flash the SD Card.  I use the below, but whatever wo
    - Make sure you enable SSH access, you don't want to be connecting monitor, keyboard, mouse etc everytime you need to check something
      - Instructions [here](https://www.raspberrypi.com/documentation/computers/remote-access.html#setting-up-an-ssh-server)
 3. Create a new directory to store the relevant files
-   - You can either close the respository, or manually create the three required files
+   - You can either clone the respository, or manually create the three required files
    - You'll need to edit two fo the three anyway, so whatever goes!
 5. Create a new text file in the directory called `requirements.txt`
    - Copy the contents of the `requirements.txt` file in GitHub in to the new file

@@ -1,4 +1,4 @@
-# BloodBikeStatus-API
+# Blood Bike Status API
 I volunteer for [Blood Bikes Australia](http://www.bloodbikesaustralia.com.au/) and we need to flag our availability using a website that has been build for us.  The website is simple enough - login in, click a button to say "Available" or "Unavailable", if available it uses the location of your device to flag to potential users of the service where you are.
 
 I happen to run a [Home Assistant](https://www.home-assistant.io/) setup at home and thought it would be cool to add the ability to view and change my status from any screen running the HASS interface.  Rather than code up a custom integration in HASS, I decided to learn Python and build an API that it can call.  This has also allowed me to code an automation that sets my status to "Unavailable" autmatically at 2030.  This avoids any issues where I forget to do so manually!
@@ -17,7 +17,7 @@ First you will need a Pi Zero W.  I used the following to build my mini-server.
 
 You will also need a way to flash the SD Card.  I use the below, but whatever works for you:
 
-- [Micro SD Card REader](https://core-electronics.com.au/usb-microsd-card-reader-writer-microsd-microsdhc-microsdxc.html)
+- [Micro SD Card Reader](https://core-electronics.com.au/usb-microsd-card-reader-writer-microsd-microsdhc-microsdxc.html)
 
 ## Initial Setup
 1. Start by flashing the SD Card

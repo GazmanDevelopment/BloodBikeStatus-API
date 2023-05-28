@@ -1,5 +1,5 @@
 # Blood Bike Status API
-I volunteer for [Blood Bikes Australia](http://www.bloodbikesaustralia.com.au/) and we need to flag our availability using a website that has been build for us.  The website is simple enough - login in, click a button to say "Available" or "Unavailable", if available it uses the location of your device to flag to potential users of the service where you are.
+I volunteer for [Blood Bikes Australia](http://www.bloodbikesaustralia.com.au/) and we need to flag our availability using a website that has been built for us.  The website is simple enough - login in, click a button to say "Available" or "Unavailable", if available it uses the location of your device to flag to potential users of the service where you are.
 
 I happen to run a [Home Assistant](https://www.home-assistant.io/) setup at home and thought it would be cool to add the ability to view and change my status from any screen running the HASS interface.  Rather than code up a custom integration in HASS, I decided to learn Python and build an API that it can call.  This has also allowed me to code an automation that sets my status to "Unavailable" autmatically at 2030.  This avoids any issues where I forget to do so manually!
 
@@ -68,9 +68,9 @@ Description=Gunicorn instance to serve the Blood Bikes Flask App
 After=network.target
 
 [Service]
-User=gareth
+User=your_username_here
 Group=www-data
-WorkingDirectory=/home/yourusername/path_to_file
+WorkingDirectory=/home/your_username_here/path_to_file
 ExecStart=gunicorn -w 3 --timeout 120 --bind 0.0.0.0:8000 set_rider_status_api:app
 
 [Install]

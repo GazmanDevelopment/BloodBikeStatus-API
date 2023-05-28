@@ -101,6 +101,8 @@ def get_status():
             "available": str(map_element_visibility),
             "message": ""
         }
+        broweser.close()
+        
         return jsonify(return_data), 200
     except Exception as ex:
         return_data = {
@@ -206,6 +208,8 @@ def set_status(status_value):
             "result": "Success",
             "message": ""
         }
+        browser.close()
+        
         return str(return_data), 200
     except Exception as ex:
         return_data = {

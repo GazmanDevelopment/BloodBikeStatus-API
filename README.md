@@ -5,6 +5,9 @@ I happen to run a [Home Assistant](https://www.home-assistant.io/) setup at home
 
 The result is this API which is designed to run on a Pi Zero W using Flask with gunicorn as the production QSGI server.  Using a Pi Zero W does have performance issues - a basic call takes about 90 seconds to respond.  Using a more powerful Pi would improve this (most of the time is spent spooling up selenium / chrome drivers) but would also be overkill unless you happen to have one spare or using it for something else.
 
+## IMPORTANT
+This API has no authentication on it.  It is designed to run in your local home network.  If you want to make this available from outside your home network, you *WILL* need to add authentication and encryption to the API / gunicorn.  This is beyond the scope of my project.
+
 ## Requirements
 First you will need a Pi Zero W.  I used the following to build my mini-server.
 
